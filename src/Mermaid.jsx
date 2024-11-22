@@ -6,8 +6,12 @@ const MermaidChart = ({ chart }) => {
     const chartRef = useRef(null);
 
     useEffect(() => {
-        mermaid.initialize({ startOnLoad: true });
-        mermaid.contentLoaded(); // This will re-render the Mermaid diagram after the component mounts.
+        mermaid.initialize({
+            startOnLoad: true,
+            securityLevel: 'loose'
+        });
+        // This will re-render the Mermaid diagram after the component mounts.
+        mermaid.contentLoaded(); 
     }, [chart]);
 
     return (
@@ -25,3 +29,4 @@ MermaidChart.propTypes = {
 };
 
 export default MermaidChart;
+
